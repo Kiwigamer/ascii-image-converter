@@ -11,13 +11,12 @@ ascii-image-converter is a command-line tool that converts images into ascii art
 Now supports braille art!
 
 Input formats currently supported:
-
-- JPEG/JPG
-- PNG
-- BMP
-- WEBP
-- TIFF/TIF
-- GIF
+* JPEG/JPG
+* PNG
+* BMP
+* WEBP
+* TIFF/TIF
+* GIF
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/TheZoraiz/ascii-image-converter/master/example_gifs/all.gif">
@@ -25,21 +24,21 @@ Input formats currently supported:
 
 ## Table of Contents
 
-- [Installation](#installation)
-  - [Debian / Ubuntu-based](#debian-or-ubuntu-based-distros)
-  - [Homebrew](#homebrew)
-  - [AUR](#aur)
-  - [Scoop](#scoop)
-  - [Snap](#snap)
-  - [Go](#go)
-  - [Linux (binaries)](#linux)
-  - [Windows (binaries)](#windows)
-- [CLI Usage](#cli-usage)
-  - [Flags](#flags)
-- [Library Usage](#library-usage)
-- [Contributing](#contributing)
-- [Packages Used](#packages-used)
-- [License](#license)
+-  [Installation](#installation)
+	*  [Debian / Ubuntu-based](#debian-or-ubuntu-based-distros)
+	*  [Homebrew](#homebrew)
+	*  [AUR](#aur)
+	*  [Scoop](#scoop)
+	*  [Snap](#snap)
+	*  [Go](#go)
+	*  [Linux (binaries)](#linux)
+	*  [Windows (binaries)](#windows)
+-  [CLI Usage](#cli-usage)
+	*  [Flags](#flags)
+-  [Library Usage](#library-usage)
+-  [Contributing](#contributing)
+-  [Packages Used](#packages-used)
+-  [License](#license)
 
 ## Installation
 
@@ -50,15 +49,12 @@ Execute the following commands in order:
 ```
 echo 'deb [trusted=yes] https://apt.fury.io/ascii-image-converter/ /' | sudo tee /etc/apt/sources.list.d/ascii-image-converter.list
 ```
-
 ```
 sudo apt update
 ```
-
 ```
 sudo apt install -y ascii-image-converter
 ```
-
 <br>
 
 To remove the package source (which means you won't be getting any further updates), execute this command:
@@ -72,11 +68,9 @@ sudo rm -v /etc/apt/sources.list.d/ascii-image-converter.list
 ### Homebrew
 
 Installation with homebrew is available for both Linux and macOS.
-
 ```
 brew install TheZoraiz/ascii-image-converter/ascii-image-converter
 ```
-
 [Link to homebrew repository](https://github.com/TheZoraiz/homebrew-ascii-image-converter)
 
 <hr>
@@ -86,25 +80,19 @@ brew install TheZoraiz/ascii-image-converter/ascii-image-converter
 The AUR repo is maintained by [magnus-tesshu](https://aur.archlinux.org/account/magnus-tesshu)
 
 Standard way:
-
 ```
 git clone https://aur.archlinux.org/ascii-image-converter-git.git
 ```
-
 ```
 cd ascii-image-converter-git/
 ```
-
 ```
 makepkg -si
 ```
-
 AUR helper:
-
 ```
 <aur-helper> -S ascii-image-converter-git
 ```
-
 <hr>
 
 ### Scoop
@@ -119,13 +107,14 @@ scoop install ascii-image-converter
 
 ### Snap
 
+
 > **Note:** The snap will not have access to hidden files and files outside the $HOME directory. This includes write access for saving ascii art as well.
 
 ```
 sudo snap install ascii-image-converter
 ```
-
 Visit [the app's snap store listing](https://snapcraft.io/ascii-image-converter) for instructions regarding enabling snapd on your distribution.
+
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ascii-image-converter)
 
@@ -136,7 +125,6 @@ Visit [the app's snap store listing](https://snapcraft.io/ascii-image-converter)
 ```
 go install github.com/TheZoraiz/ascii-image-converter@latest
 ```
-
 <hr>
 
 For physically installing the binaries, follow the steps with respect to your OS.
@@ -150,7 +138,6 @@ Now, open a terminal in the same directory and execute this command:
 ```
 sudo cp ascii-image-converter /usr/local/bin/
 ```
-
 Now you can use ascii-image-converter in the terminal. Execute `ascii-image-converter -h` for more details.
 
 ### Windows
@@ -158,11 +145,10 @@ Now you can use ascii-image-converter in the terminal. Execute `ascii-image-conv
 You will need to set an Environment Variable to the folder the ascii-image-converter.exe executable is placed in to be able to use it in the command prompt. Follow the instructions in case of confusion:
 
 Download the archive for your Windows architecture [here](https://github.com/TheZoraiz/ascii-image-converter/releases/latest), extract it, and open the extracted folder. Now, copy the folder path from the top of the file explorer and follow these instructions:
-
-- In Search, search for and then select: Advanced System Settings
-- Click Environment Variables. In the section User Variables find the Path environment variable and select it. Click "Edit".
-- In the Edit Environment Variable window, click "New" and then paste the path of the folder that you copied initially.
-- Click "Ok" on all open windows.
+* In Search, search for and then select: Advanced System Settings
+* Click Environment Variables. In the section User Variables find the Path environment variable and select it. Click "Edit".
+* In the Edit Environment Variable window, click "New" and then paste the path of the folder that you copied initially.
+* Click "Ok" on all open windows.
 
 Now, restart any open command prompt and execute `ascii-image-converter -h` for more details.
 
@@ -177,18 +163,16 @@ The basic usage for converting an image into ascii art is as follows. You can al
 ```
 ascii-image-converter [image paths/urls]
 ```
-
 Example:
-
 ```
 ascii-image-converter myImage.jpeg
 ```
 
 > **Note:** Piped binary input is also supported
->
 > ```
 > cat myImage.png | ascii-image-converter -
 > ```
+
 
 ### Flags
 
@@ -213,7 +197,6 @@ ascii-image-converter [image paths/urls] --color
 > **Note:** Braille pattern display heavily depends on which terminal or font you're using. In windows, try changing the font from command prompt properties if braille characters don't display
 
 Use braille characters instead of ascii. For this flag, your terminal must support braille patters (UTF-8) properly. Otherwise, you may encounter problems with colored or even uncolored braille art.
-
 ```
 ascii-image-converter [image paths/urls] -b
 # Or
@@ -229,7 +212,6 @@ ascii-image-converter [image paths/urls] --braille
 Set threshold value to compare for braille art when converting each pixel into a dot. Value must be between 0 and 255.
 
 Example:
-
 ```
 ascii-image-converter [image paths/urls] -b --threshold 170
 ```
@@ -239,7 +221,6 @@ ascii-image-converter [image paths/urls] -b --threshold 170
 Apply dithering on image to make braille art more visible. Since braille dots can only be on or off, dithering images makes them more visible in braille art.
 
 Example:
-
 ```
 ascii-image-converter [image paths/urls] -b --dither
 ```
@@ -251,7 +232,6 @@ ascii-image-converter [image paths/urls] -b --dither
 #### --color-bg
 
 If any of the coloring flags is passed, this flag will transfer its color to each character's background. instead of foreground. However, this option isn't available for `--save-img` and `--save-gif`
-
 ```
 ascii-image-converter [image paths/urls] -C --color-bg
 ```
@@ -261,19 +241,15 @@ ascii-image-converter [image paths/urls] -C --color-bg
 > **Note:** Don't immediately append another flag with -d
 
 Set the width and height for ascii art in CHARACTER lengths.
-
 ```
 ascii-image-converter [image paths/urls] -d <width>,<height>
 # Or
 ascii-image-converter [image paths/urls] --dimensions <width>,<height>
 ```
-
 Example:
-
 ```
 ascii-image-converter [image paths/urls] -d 60,30
 ```
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/TheZoraiz/ascii-image-converter/master/example_gifs/dimensions.gif">
 </p>
@@ -283,15 +259,12 @@ ascii-image-converter [image paths/urls] -d 60,30
 > **Note:** Don't immediately append another flag with -W
 
 Set width of ascii art. Height is calculated according to aspect ratio.
-
 ```
 ascii-image-converter [image paths/urls] -W <width>
 # Or
 ascii-image-converter [image paths/urls] --width <width>
 ```
-
 Example:
-
 ```
 ascii-image-converter [image paths/urls] -W 60
 ```
@@ -301,15 +274,12 @@ ascii-image-converter [image paths/urls] -W 60
 > **Note:** Don't immediately append another flag with -H
 
 Set height of ascii art. Width is calculated according to aspect ratio.
-
 ```
 ascii-image-converter [image paths/urls] -H <height>
 # Or
 ascii-image-converter [image paths/urls] --height <height>
 ```
-
 Example:
-
 ```
 ascii-image-converter [image paths/urls] -H 60
 ```
@@ -320,16 +290,14 @@ ascii-image-converter [image paths/urls] -H 60
 
 Pass a string of your own ascii characters to map against. Passed characters must start from darkest character and end with lightest. There is no limit to number of characters.
 
-Empty spaces can be passed if string is passed inside quotation marks. You can use both single or double quote for quotation marks. For repeating quotation mark inside string, append it with \ (such as \\").
+Empty spaces can be passed if string is passed inside quotation marks. You can use both single or double quote for quotation marks. For repeating quotation mark inside string, append it with \ (such as  \\").
 
 ```
 ascii-image-converter [image paths/urls] -m "<string-of-characters>"
 # Or
 ascii-image-converter [image paths/urls] --map "<string-of-characters>"
 ```
-
 Following example contains 7 depths of lighting.
-
 ```
 ascii-image-converter [image paths/urls] -m " .-=+#@"
 ```
@@ -365,7 +333,6 @@ ascii-image-converter [image paths/urls] --negative
 #### --complex OR -c
 
 Print the image with a wider array of ascii characters for more detailed lighting density. Sometimes improves accuracy.
-
 ```
 ascii-image-converter [image paths/urls] -c
 # Or
@@ -375,7 +342,6 @@ ascii-image-converter [image paths/urls] --complex
 #### --full OR -f
 
 Print ascii art that fits the terminal width while maintaining aspect ratio.
-
 ```
 ascii-image-converter [image paths/urls] -f
 # Or
@@ -393,7 +359,6 @@ ascii-image-converter [image paths/urls] -x
 ```
 
 #### --flipY OR -y
-
 Flip the ascii art vertically on the terminal.
 
 ```
@@ -401,6 +366,8 @@ ascii-image-converter [image paths/urls] --flipY
 # Or
 ascii-image-converter [image paths/urls] -y
 ```
+
+
 
 #### --save-img OR -s
 
@@ -497,7 +464,6 @@ ascii-image-converter --formats
 > **Note:** The library may throw errors during Go tests due to some unresolved bugs with the [consolesize-go](https://github.com/nathan-fiscaletti/consolesize-go) package (Only during tests, not main program execution).
 
 First, install the library with:
-
 ```
 go get -u github.com/TheZoraiz/ascii-image-converter/aic_package
 ```
@@ -542,7 +508,6 @@ func main() {
 	fmt.Printf("%v\n", asciiArt)
 }
 ```
-
 <br>
 
 > **Note:** GIF conversion is not advised as the function may run infinitely, depending on the GIF. More work needs to be done on this to make it more library-compatible.
